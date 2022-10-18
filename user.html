@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+</head>
+<style>
+      @font-face {
+        font-family: yellowtail;
+        src: url(./font/Yellowtail-Regular.ttf);
+      }
+    body{
+        font-family: yellowtail;
+    }
+    * {
+  padding: 0;
+  margin: 0;
+}
+    .cont{
+        background-image: url(./image/neon-light-arrow-direction-perspective_1017-22033.jpg);
+        width: 100%;
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    button{
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+</style>
+<body>
+    <div class="cont">
+        <h1 style="text-align:center; padding-top: 250px; color: rgb(194, 226, 13);">WELCOME</h1>
+        <h3 style="text-align:center; color: rgb(194, 226, 13);">ENTER YOUR USERNAME</h3>
+        <div class="d-flex justify-content-center align-items-center">
+        <input id="user" type="text" placeholder="Username" style="border-radius: 10px; padding-left: 10px; width: 300px; border: none; outline: none;">
+        </div>
+        <button class="btn btn-sm btn-primary" style="font-weight: bold; margin-top: 20px; margin-left: 602px;" onclick="start()">START GAME</button>
+        <div class="container">
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title"><div class="spinner-border"></div></h4>
+                  </div>
+                    <!-- Modal body -->
+                  <div class="modal-body">
+                    Game loading....please do not interrupt this process
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+</body>
+<script src="./Js/user.js"></script>
+</html>
