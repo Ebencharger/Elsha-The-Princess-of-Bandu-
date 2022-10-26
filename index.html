@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <div  id="home" class="container-fluid w-100">
+        <div class="dela">
+          <div class="details">
+            <div class="game_name">
+              <h1 class="text-center">ELSHA</h1>
+              <p class="text-center">The Princess of Bandu</p>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div id="mybtn" class=" container mybtn">
+          </div>
+        </div>
+      </div>
+    
+      <div hidden id="over" class="container-fluid w-100">
+        <div class="dela">
+          <div class="details">
+            <div class="game_name">
+              <h1 class="text-center">ELSHA</h1>
+              <p class="text-center">The Princess of Bandu</p>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div class="btn font-weight-bold btn-danger w-100 mb-5">GAME OVER</div>
+          <div onclick="handleOver()" class="btn font-weight-bold btn-light w-100">CLICK TO GO HOME</div>
+        </div>
+      </div>
+
+      <div hidden id="play" class="homeplay">
+        <canvas id="canvas" width="1000" height="600" style="background-image: url(./bgimg/prelude.gif);"></canvas>
+         <div id="enemyLife"></div>
+        <div id="life" class="life">
+        </div>
+        <div id="level"></div>
+      </div>
+
+
+      <div hidden id="anotherlevel" class="container-fluid w-100">
+        <div class="dela">
+            <div class="details">
+              <div class="game_name">
+                <h1 class="text-center">ELSHA</h1>
+                <p class="text-center">The Princess of Bandu</p>
+              </div>
+              <div class="line"></div>
+            </div>
+            <div id="newlevel" class="btn font-weight-bold btn-danger w-100 mb-1"></div>
+            <div class="progress position-relative">
+                <span id="load" style="top:45%;left:45%" class="position-absolute font-weight-bold">0% Complete</span>
+                <div id="progress" class="progress-bar text-center" role="progressbar" style="width:0%">
+                </div>
+               
+              </div>
+          </div>
+      </div>
+   
+
+    <div hidden id="sto" class="container-fluid w-100">
+        <div class="dela">
+          <div class="details2">
+            <div class="game_name">
+              <h1 class="text-center">ELSHA</h1>
+              <p class="text-center">The Princess of Bandu</p>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div id="story" class="story mb-3">
+            ELSHA was a princess of Bandu kingdom, she eloped with a man whom she thought was a prince from another
+            kingdom. Later she realized that the handsome
+            prince was a luring demon. After the handsome prince successfully led Elsha to his territory having they both crossed many borders, he turned to demon and wanted to kill Elsha. Elsha ran out of the kingdom eventually in the custume of one of the kingdom's warriors, but to get back home, she must kill all the 10 border's keepers. They are not any easy creatures, no weapon has effect on their body, but only to some parts of their body. Will Elsha get back home? Only you can answer the question.
+          </div>
+          <div id="mybtn" class=" container mybtn">
+            <button onclick="window.location.href='./index.html'" class="btn btn-light w-100">Exit</button>
+          </div>
+        </div>
+      </div>
+    
+      <div hidden id="def" class="container-fluid w-100">
+        <div class="dela">
+          <div class="details2">
+            <div class="game_name">
+              <h1 class="text-center">ELSHA</h1>
+              <p class="text-center">The Princess of Bandu</p>
+            </div>
+            <div class="line"></div>
+          </div>
+          <div id="story" class="story mb-3">
+            <ul>
+              <li>Press up Arrow Key to move Elsha up</li>
+              <li>Press down Arrow Key to move Elsha down</li>
+              <li>Press left Arrow Key to move Elsha to the left</li>
+              <li>Press right Arrow Key to move Elsha to the right</li>
+              <li>Press F to fire against any enemy</li>
+              <li>Press ESC to pause the game</li>
+            </ul>
+            <p class="ml-4">Thanks for playing this game</p>
+          </div>
+          <div class="container mybtn">
+            <button onclick="window.location.href='./index.html'" class="btn btn-light w-100">Exit</button>
+          </div>
+        </div>
+      </div>
+
+      <div hidden id="pause" class="container-fluid w-100">
+        <div class="dela">
+          <div class="details2">
+            <div class="game_name">
+              <h1 class="text-center">ELSHA</h1>
+              <p class="text-center">The Princess of Bandu</p>
+            </div>
+            <div class="line"></div>
+          </div>
+          
+          <div class="container mybtn">
+            <div onclick="handleContinue()" class="btn font-weight-bold btn-danger w-100 mb-5">CONTINUE</div>
+            <button onclick="window.location.href='./index.html'" class="btn btn-light w-100">Exit</button>
+          </div>
+        </div>
+      </div>
+
+</body>
+<script src="./index.js"></script>
+
+</html>
