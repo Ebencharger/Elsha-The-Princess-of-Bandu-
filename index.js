@@ -240,6 +240,94 @@ function myVoice(params) {
     bossHit();
     }, elshaShootInterval);
    }
+
+   //myleft
+   function myLeft(params) {
+    if (amIHit==false) {
+      elshaX=elshaX-20;
+  }
+  if (isElshaBullet==false) {
+      elshaBleft=elshaBleft-20;
+  }
+  console.log(diff, diff2);
+  elshaHit();
+  bossHit();
+  context.clearRect(0,0, canvas.width, canvas.height);
+  updateCharacter();
+   }
+
+   //move to right
+   function myRight(params) {
+    if (amIHit==false) {
+      elshaX=elshaX+20;
+  }
+  if (isElshaBullet==false) {
+      elshaBleft=elshaBleft+20;
+  }
+  console.log(diff, diff2);
+  elshaHit();
+  bossHit();
+  context.clearRect(0,0, canvas.width, canvas.height);
+  updateCharacter();
+   }
+
+   //move to top
+   function myTop(params) {
+    if (amIHit==false) {
+      elshaY=elshaY-20;
+  }
+  if (isElshaBullet==false) {
+      elshaBTop=elshaBTop-20;
+  }
+  console.log(diff, diff2);
+  elshaHit();
+  bossHit();
+  context.clearRect(0,0, canvas.width, canvas.height);
+  updateCharacter();
+   }
+
+   //move to bottom
+   function myBottom(params) {
+    if (amIHit==false) {
+      elshaY=elshaY+20;
+  }
+  if (isElshaBullet==false) {
+      elshaBTop=elshaBTop+20;
+  }
+  console.log(diff, diff2);
+  elshaHit();
+  bossHit();
+  context.clearRect(0,0, canvas.width, canvas.height);
+  updateCharacter();
+   }
+
+   //fire
+   function myFire(params) {
+    clearInterval(bulletElshaInterval)
+    if (isElshaBullet==false) {
+     var audio=new Audio('./efx/soundscrate-shotgun-firing-3.mp3');
+     audio.pause();
+     audio.play();
+    }
+    moveElshaBullet();
+   }
+
+   //pause
+   function myPause(params) {
+    clearInterval(bulletElshaInterval);
+    clearInterval(bulletBossInterval);
+    clearInterval(moveInterval);
+    document.getElementById('play').hidden=true; 
+    document.getElementById('pause').hidden=false; 
+     pauseBoss=bossX;
+     pauseBoss2=bossY;
+     pauseBossB=bossBleft;
+     pauseBossB2=bossBTop;
+     pauseElsha=elshaX;
+     pauseElsha2=elshaY;
+     pauseElshaB=elshaBleft;
+     pauseElshaB2=elshaBTop; 
+   }
     
 
    //command and action buttons
@@ -249,87 +337,29 @@ function myVoice(params) {
         return false;
     }
     if (elshaX>0 && e.keyCode==37) {
-        if (amIHit==false) {
-            elshaX=elshaX-20;
-        }
-        if (isElshaBullet==false) {
-            elshaBleft=elshaBleft-20;
-        }
-        console.log(diff, diff2);
-        elshaHit();
-        bossHit();
-        context.clearRect(0,0, canvas.width, canvas.height);
-        updateCharacter();
+        myLeft();
     }
     //right
     else if (elshaX<800 && e.keyCode==39) {
-        if (amIHit==false) {
-            elshaX=elshaX+20;
-        }
-        if (isElshaBullet==false) {
-            elshaBleft=elshaBleft+20;
-        }
-        console.log(diff, diff2);
-        elshaHit();
-        bossHit();
-        context.clearRect(0,0, canvas.width, canvas.height);
-        updateCharacter();
+        myRight()
     }
     //top
     else if (elshaY>0 && e.keyCode==38) {
-        if (amIHit==false) {
-            elshaY=elshaY-20;
-        }
-        if (isElshaBullet==false) {
-            elshaBTop=elshaBTop-20;
-        }
-        console.log(diff, diff2);
-        elshaHit();
-        bossHit();
-        context.clearRect(0,0, canvas.width, canvas.height);
-        updateCharacter();
+       myTop();
     }
     //bottom
     else if (elshaY>=0 && elshaY<=400 && e.keyCode==40) {
-        if (amIHit==false) {
-            elshaY=elshaY+20;
-        }
-        if (isElshaBullet==false) {
-            elshaBTop=elshaBTop+20;
-        }
-        console.log(diff, diff2);
-        elshaHit();
-        bossHit();
-        context.clearRect(0,0, canvas.width, canvas.height);
-        updateCharacter();
+       myBottom();
     }
 
     else if(e.keyCode==70){
-    clearInterval(bulletElshaInterval)
-    if (isElshaBullet==false) {
-     var audio=new Audio('./efx/soundscrate-shotgun-firing-3.mp3');
-     audio.pause();
-     audio.play();
-    }
-    moveElshaBullet();
+    myFire();
      
     }
 
     //pause
     if (e.keyCode==27) {
-        clearInterval(bulletElshaInterval);
-        clearInterval(bulletBossInterval);
-        clearInterval(moveInterval);
-        document.getElementById('play').hidden=true; 
-        document.getElementById('pause').hidden=false; 
-         pauseBoss=bossX;
-         pauseBoss2=bossY;
-         pauseBossB=bossBleft;
-         pauseBossB2=bossBTop;
-         pauseElsha=elshaX;
-         pauseElsha2=elshaY;
-         pauseElshaB=elshaBleft;
-         pauseElshaB2=elshaBTop;  
+       myPause() 
     }
    }
 
@@ -573,5 +603,28 @@ function myVoice(params) {
        }, 100);
     }
    }
+
+   //button control
+
+  function handleControl(params) {
+    if (params=='up') {
+      myTop()
+    }
+    else if (params=='left') {
+      myLeft()
+    }
+    else if (params=='f') {
+      myFire();
+    }
+    else if (params=='right') {
+      myRight();
+    }
+    else if (params=='down') {
+      myBottom();
+    }
+    else if (params=='p') {
+     myPause();
+    }
+  }
 
    

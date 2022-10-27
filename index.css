@@ -24,6 +24,31 @@ overflow: hidden;
     animation-iteration-count: 1;
   }
 
+  .control{
+    position: absolute;
+    left: 45%;
+    bottom:5%;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  .pause{
+    position: absolute;
+    left: 5%;
+    bottom:5%;
+    border-radius: 100%;
+    z-index: 1;
+  }
+
+  .control .all{
+margin-left: -58px;
+  }
+  .control .btn{
+    width: 50px;
+    height: 50px;
+  }
+
   @keyframes opac{
    0%{
     opacity: 0;
@@ -37,7 +62,7 @@ overflow: hidden;
 
   #over{
     height: 100vh;
-    background-image: url(./bgimg/incredible\ collection\ of\ video\ game\ backgrounds\ in\ animated\ GIF\ form.gif);
+    background-image: url(./bgimg/start\ up.gif);
     transition: 1s all;
     animation-name: opac;
     animation-duration: 5s;
