@@ -288,7 +288,7 @@ function myVoice(params) {
 
    //move to bottom
    function myBottom(params) {
-    if (amIHit==false) {
+  if (amIHit==false) {
       elshaY=elshaY+20;
   }
   if (isElshaBullet==false) {
@@ -385,15 +385,15 @@ function myVoice(params) {
         diff=elshaY-bossBTop;
     }
     //boss against elsha
-    if (diff<=100 && (bossBleft-elshaX<=100)) {
+    if (diff<=100 && (bossBleft-elshaX<=100) && amIHit==false) {
+        isElshaBullet=true;
+        amIHit=true;
         pauseBoss=bossX;
         pauseBoss2=bossY;
         clearInterval(bulletElshaInterval);
         clearInterval(bulletBossInterval);
         clearInterval(moveInterval);
         live--;
-        isElshaBullet=true;
-        amIHit=true;
         if (live!=0) {
           life();
           setTimeout(() => {
@@ -406,8 +406,10 @@ function myVoice(params) {
         elshaY=220;
         elshaBleft=0;
         elshaBTop=220;
+        setTimeout(() => {
         isElshaBullet=false;
         amIHit=false;
+        }, 1000);
         if (whichAngle=='top') {
             clearInterval(moveInterval);
            setTimeout(() => {
